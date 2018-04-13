@@ -1,0 +1,13 @@
+{
+    "name": "senseict/whmcs-rocket-chat",
+    "description": "Rocket.Chat for WHMCS",
+    "authors": [
+        {
+            "name": "Matt Spurrier",
+            "email": "matt@senseict.com.au"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    }
+}
