@@ -61,7 +61,7 @@ class RocketChat implements NotificationModuleInterface
             throw new Exception('No Notification tokens Found');
         }
 	$postData=[
-		'text' => sprintf("Ticket %s %s (%s)", $notification->getTitle(), $notification->getMessage(), $notification->getUrl()),
+                'text' => sprintf("[%s](%s) \n %s", $notification->getTitle(), $notification->getUrl(), $notification->getMessage()),
 	];
 	foreach ($notification->getAttributes() as $attribute) {
 	 	$postData['attachments'][] = [
