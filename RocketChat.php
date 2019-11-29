@@ -52,8 +52,9 @@ class RocketChat implements NotificationModuleInterface {
 		if (!$to) {
 			throw new Exception('No Notification tokens Found');
 		}
+		$notificationURL = $notification->getUrl();
 		$postData = [
-			'text' => sprintf("[%s](%s) \n %s", $notification->getTitle(), $notification->getUrl(), $notification->getMessage()),
+			'text' => sprintf("[%s](%s) \n %s", $notification->getTitle(), $notificationURL, $notification->getMessage()),
 		];
 		foreach ($notification->getAttributes() as $attribute) {
 			$title_link = $attribute->getUrl();
@@ -61,10 +62,7 @@ class RocketChat implements NotificationModuleInterface {
 			$attachment = [
 				'title' => $attribute->getLabel(),
 				'text' => $attribute->getValue(),
-			];
-
-			if ($title_link != "") {
-				$attachment['title_link'] = $title_link;
+				'title_link' = ($title_link != "") ? $title_link : $notificationURL,
 			}
 
 			$postData['attachments'][] = $attachment;
