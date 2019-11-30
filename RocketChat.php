@@ -63,7 +63,7 @@ class RocketChat implements NotificationModuleInterface {
 				'title' => $attribute->getLabel(),
 				'text' => $attribute->getValue(),
 				'title_link' = ($title_link != "") ? $title_link : $notificationURL,
-			}
+			];
 
 			$postData['attachments'][] = $attachment;
 		}
